@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_labgeneagrogene</name>
+    <creationDate>2015-11-25</creationDate>
+    <copyright>Copyright (C) LabGene 2015. Todos os direitos reservados.</copyright>
+    <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
+    <author>Pedro Augusto</author>
+    <authorEmail>pams.pedro@gmail.com</authorEmail>
+    <authorUrl>http://ther.com.br/</authorUrl>
+    <version>1.0.0</version>
+    <description>Componente para o Joomla 3.x que permite a gestão de exames agrogenéticos - gerenciamento do formulário de solicitação e gerencia do requisição como alteração do andamento e entrega de resultados.</description>
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>labgeneagrogene.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>assets</folder>
+    </files>
+    <languages folder="languages/site">
+        <language tag="en-GB">en-GB/en-GB.com_labgeneagrogene.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.com_labgeneagrogene.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_labgeneagrogene/assets/images/s_com_labgeneagrogene.png">COM_LABGENEAGROGENE</menu>
+        <submenu>
+            <menu link="option=com_labgeneagrogene&amp;view=requests" view="requests" img="components/com_labgeneagrogene/assets/images/s_requests.png" alt="LabGeneAgroGene/Requests">COM_LABGENEAGROGENE_REQUESTS</menu>
+            <menu link="option=com_labgeneagrogene&amp;view=exams" view="exams" img="components/com_labgeneagrogene/assets/images/s_exams.png" alt="LabGeneAgroGene/Exams">COM_LABGENEAGROGENE_EXAMS</menu>
+            <menu link="option=com_labgeneagrogene&amp;view=constitutions" view="constitutions" img="components/com_labgeneagrogene/assets/images/s_constitutions.png" alt="LabGeneAgroGene/Constitutions">COM_LABGENEAGROGENE_CONSTITUTIONS</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>labgeneagrogene.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            <language tag="en-GB">en-GB/en-GB.com_labgeneagrogene.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_labgeneagrogene.sys.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_labgeneagrogene.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_labgeneagrogene.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="search" plugin="labgeneagrogene"/>
+    </plugins>
+</extension>

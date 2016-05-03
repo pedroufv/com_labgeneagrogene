@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <field name="id"
+               type="text"
+               default="0"
+               label="COM_LABGENEAGROGENE_FORM_LBL_ID"
+               readonly="true"
+               class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"
+                />
+        <field name="product"
+               type="text"
+               label="COM_LABGENEAGROGENE_FORM_LBL_PRODUCT"
+               description="COM_LABGENEAGROGENE_FORM_DESC_PRODUCT"
+                />
+        <field name="category_exams"
+               type="category"
+               extension="com_labgeneagrogene"
+               label="JCATEGORY"
+               description="JCATEGORY">
+            <option value=""></option>
+        </field>
+        <field name="code_exam"
+               type="sql"
+               label="COM_LABGENEAGROGENE_FORM_LBL_CODE_EXAMS"
+               description="COM_LABGENEAGROGENE_FORM_DESC_CODE_EXAMS"
+               required="true"
+               query="SELECT id AS value, title as code_exam FROM #__labgeneagrogene_exams"
+               multiple="single"
+               class="inputbox">
+            <option value=""></option>
+        </field>
+        <field name="deadline"
+               type="calendar"
+               label="COM_LABGENEAGROGENE_FORM_LBL_DEADLINE"
+               description="COM_LABGENEAGROGENE_FORM_DESC_DEADLINE"
+                />
+        <field name="lot"
+               type="text"
+               label="COM_LABGENEAGROGENE_FORM_LBL_LOT"
+               description="COM_LABGENEAGROGENE_FORM_DESC_LOT"
+                />
+        <field name="reference"
+               type="text"
+               label="COM_LABGENEAGROGENE_FORM_LBL_REFERENCE"
+               description="COM_LABGENEAGROGENE_FORM_DESC_REFERENCE"
+                />
+        <field name="amount"
+               type="text"
+               label="COM_LABGENEAGROGENE_FORM_LBL_AMOUNT"
+               description="COM_LABGENEAGROGENE_FORM_DESC_AMOUNT"
+                />
+        <field name="date_manufacture"
+               type="calendar"
+               label="COM_LABGENEAGROGENE_FORM_LBL_DATE_MANUFACTURE"
+               description="COM_LABGENEAGROGENE_FORM_DESC_DATE_MANUFACTURE"
+                />
+        <field name="date_validity"
+               type="calendar"
+               label="COM_LABGENEAGROGENE_FORM_LBL_DATE_VALIDITY"
+               description="COM_LABGENEAGROGENE_FORM_DESC_DATE_VALIDITY"
+                />
+        <field name="constitution"
+               type="sql"
+               label="COM_LABGENEAGROGENE_FORM_LBL_CONSTITUTION"
+               description="COM_LABGENEAGROGENE_FORM_DESC_CONSTITUTION"
+               required="true"
+               query="SELECT id AS value, title as constitution FROM #__labgeneagrogene_constitutions"
+               multiple="single"
+               class="inputbox"
+                />
+        <field name="number_products"
+               type="integer"
+               first="1"
+               last="500"
+               step="1"
+               label="COM_LABGENEAGROGENE_FORM_LBL_NUMBER_PRODUCTS"
+               description="COM_LABGENEAGROGENE_FORM_DESC_NUMBER_PRODUCTS"
+                />
+        <field name="date_reception"
+               type="calendar"
+               label="COM_LABGENEAGROGENE_FORM_LBL_DATE_RECEPTION"
+               description="COM_LABGENEAGROGENE_FORM_DESC_DATE_RECEPTION"
+                />
+        <field  name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <field name="checked_out" type="hidden" filter="unset"/>
+        <field name="checked_out_time" type="hidden" filter="unset"/>
+    </fields>
+    <fields>
+        <fieldset name="accesscontrol">
+            <field name="asset_id" type="hidden" filter="unset"/>
+            <field name="rules"
+                   type="rules"
+                   label="JFIELD_RULES_LABEL"
+                   translate_label="false"
+                   filter="rules"
+                   validate="rules"
+                   class="inputbox"
+                   component="com_labgeneagrogene"
+                   section="container"
+                    />
+        </fieldset>
+    </fields>
+</form>

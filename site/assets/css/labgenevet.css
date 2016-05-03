@@ -1,0 +1,43 @@
+#jform_containerslist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#jform_containerslist li {
+    float: left;
+}
+
+#jform_containerslist li label {
+    display: block;
+    padding: 1px 18px;
+}
+
+#jform_containerslist li input {
+    float: left;
+}
+
+.exam-category label {
+    font-weight: bold;
+}
+
+.exam-checkboxes fieldset ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.exam-checkboxes li {
+    float: left;
+}
+
+.exam-checkboxes li label {
+    display: block;
+    padding: 1px 18px;
+}
+
+.exam-checkboxes fieldset ul li input {
+    float: left;
+}
