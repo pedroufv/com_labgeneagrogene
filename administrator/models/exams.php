@@ -243,7 +243,7 @@ class LabgeneagrogeneModelExams extends JModelList {
 
             $options = '';
             foreach ($examslist as $exam) {
-                $options .= '<option class="checkexam" value="'.$exam['id'].'">'.$exam['title'].' - R$ '.$exam['price'].'</option>';
+                $options .= '<option class="checkexam" value="'.$exam['id'].'">'.$exam['title'].'</option>';
             }
 
             $field .= '<field name="'.$catId.'" filter="boolean" type="checkboxes" label="'.$catTitle.'">'.$options.'</field>';

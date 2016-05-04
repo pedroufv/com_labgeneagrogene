@@ -23,46 +23,6 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
 ?>
 <script type="text/javascript">
     js = jQuery.noConflict();
-    js(document).ready(function () {
-
-        // when any option from country list is selected
-        js("select[id='jform_category_exams']").change(function(){
-
-            // get the selected option value of country
-            var optionValue = js("select[id='jform_category_exams']").val();
-
-            js.ajax({
-                type: "POST",
-                url: "index.php?option=com_labgeneagrogene&task=populateExams",
-                data: ({category: optionValue, status: 1}),
-                beforeSend: function(){ js("#ajaxLoader").show(); },
-                complete: function(){ js("#ajaxLoader").hide(); },
-                dataType: 'json',
-                success: function(response){
-                    var options = js("select[id='jform_code_exam']");
-                    options.empty();
-                    js.each(response, function() {
-                        options.append(js("<option />").val(this.id).text(this.title));
-                        options.trigger("liszt:updated");
-                    });
-                }
-            });
-        });
-
-        var valorTotal = 0;
-        js(".checkexam").change(function() {
-            var id = this.id;
-            var labelText = js("label[for="+id+"]").text();
-            var price = parseFloat(labelText.split('$')[1]);
-            if(this.checked) {
-                valorTotal = valorTotal + price;
-            } else {
-                valorTotal = valorTotal - price;
-            }
-            js('#jform_total').val(valorTotal.toFixed(2));
-            js('#total').html(valorTotal.toFixed(2));
-        });
-    });
     Joomla.submitbutton = function (task) {
         if (task == 'request.cancel') {
             Joomla.submitform(task, document.getElementById('request-form'));
@@ -90,15 +50,6 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                     <div class="span4 control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('product'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('product'); ?></div>
-                    </div>
-                    <div class="span4 control-group">
-                        <div class="control-label"><?php echo $this->form->getLabel('category_exams'); ?></div>
-                        <div class="controls"><?php echo $this->form->getInput('category_exams'); ?></div>
-                    </div>
-                    <div id="ajaxLoader" style="display:none"><img src="components/com_labgeneagrogene/assets/images/ajax-loader.gif" alt="loading..."></div>
-                    <div class="span4 control-group">
-                        <div class="control-label"><?php echo $this->form->getLabel('code_exam'); ?></div>
-                        <div class="controls"><?php echo $this->form->getInput('code_exam'); ?></div>
                     </div>
                     <div class="span4 control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('deadline'); ?></div>
@@ -139,6 +90,14 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                     <div class="control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
+                    </div>
+                    <div class="span12 control-group">
+                        <?php foreach($this->form->getGroup('examslist') as $field): ?>
+                            <div class="span4 control-group">
+                                <div class="exam-category"><?php echo $field->label; ?></div>
+                                <div class="exam-checkboxes"><?php echo $field->input; ?></div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </fieldset>
             </div>

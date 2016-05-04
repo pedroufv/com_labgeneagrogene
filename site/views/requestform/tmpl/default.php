@@ -126,6 +126,20 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="controls"><?php echo $this->form->getInput('number_products'); ?></div>
         </div>
     </fieldset>
+    <?php if($exams = $this->form->getGroup('examslist')): ?>
+        <fieldset>
+            <legend><?php echo JText::_('COM_LABGENEAGROGENE_EXAMS'); ?></legend>
+            <div class="control-group">
+                <?php foreach($this->form->getGroup('examslist') as $field): ?>
+                    <div class="control-group">
+                        <?php $field->readonly = true; ?>
+                        <div class="exam-category"><?php echo $field->label; ?></div>
+                        <div class="exam-checkboxes"><?php echo $field->input; ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </fieldset>
+    <?php endif; ?>
     <fieldset>
         <div class="control-group">
             <div class="controls">

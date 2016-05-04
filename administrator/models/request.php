@@ -58,9 +58,16 @@ class LabgeneagrogeneModelRequest extends JModelAdmin
         $form = $this->loadForm(
             'com_labgeneagrogene.request', 'request',
             array('control' => 'jform',
-                'load_data' => true
+                'load_data' => false
             )
         );
+
+        $examsCheckboxes = $this->getRelatedModel('Exams')->getXmlFieldCheckboxes();
+        if($examsCheckboxes) {
+            $form->setField($examsCheckboxes);
+        }
+
+        @$form->bind($this->loadFormData());
 
         if (empty($form)) {
             return false;
@@ -100,23 +107,26 @@ class LabgeneagrogeneModelRequest extends JModelAdmin
     public function getItem($pk = null)
     {
         if ($item = parent::getItem($pk)) {
-		if(!is_null($item->id)) {		
-			$id = $item->id;
-			// Create a new query object.
-			$db = $this->getDbo();
-			$query = $db->getQuery(true);
-			$query->select('`code_exam`.catid AS `catid`');
-			$query->from('`#__labgeneagrogene_requests` AS a');
-			$query->select('`code_exam`.title AS `code_exam`');
-			$query->join('LEFT', '#__labgeneagrogene_exams AS `code_exam` ON `code_exam`.id = a.`code_exam`');
-			$query->where("a.id = $item->id");
-			$db->setQuery($query);
-
-			$item->category_exams = $db->loadResult();
-		}
+            $key = $this->getTable()->getKeyName();
+            $pk = JFactory::getApplication()->input->getInt($key);
+            if($pk) {
+                $item->examslist = $this->getRelatedModel('examslist')->getExamsInRequestByCategory($pk);
+            }
         }
 
         return $item;
+    }
+
+
+    /**
+     * get model related
+     *
+     * @param string $name
+     * @return JModelLegacy
+     */
+    private function getRelatedModel($name) {
+        $model = JModelLegacy::getInstance($name,'LabgeneagrogeneModel');
+        return $model;
     }
 
     /**
@@ -127,6 +137,20 @@ class LabgeneagrogeneModelRequest extends JModelAdmin
      */
     public function save($data)
     {
+        $application = JFactory::getApplication();
+        $input = JFactory::getApplication()->input;
+        $inputArray = $input->post->getArray();
+        $jformArray = $inputArray['jform'];
+
+        $examsListCategory = $jformArray['examslist'];
+        $examsList = array();
+        foreach($examsListCategory as $category => $exams) {
+            foreach($exams as $exam) {
+                array_push($examsList, $exam);
+            }
+        }
+        $this->getRelatedModel('Examslist')->save($data['id'], $examsList);
+
         return parent::save($data);
     }
 }

@@ -14,23 +14,6 @@
                label="COM_LABGENEAGROGENE_FORM_LBL_PRODUCT"
                description="COM_LABGENEAGROGENE_FORM_DESC_PRODUCT"
                 />
-        <field name="category_exams"
-               type="category"
-               extension="com_labgeneagrogene"
-               label="JCATEGORY"
-               description="JCATEGORY">
-            <option value=""></option>
-        </field>
-        <field name="code_exam"
-               type="sql"
-               label="COM_LABGENEAGROGENE_FORM_LBL_CODE_EXAMS"
-               description="COM_LABGENEAGROGENE_FORM_DESC_CODE_EXAMS"
-               required="true"
-               query="SELECT id AS value, title as code_exam FROM #__labgeneagrogene_exams"
-               multiple="single"
-               class="inputbox">
-            <option value=""></option>
-        </field>
         <field name="deadline"
                type="calendar"
                label="COM_LABGENEAGROGENE_FORM_LBL_DEADLINE"

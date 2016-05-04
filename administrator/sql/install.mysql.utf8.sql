@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_exams` (
 CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_requests` (
   `id`               INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `product`          VARCHAR(150)     NOT NULL,
-  `code_exam`        INT              NOT NULL,
   `deadline`         DATE             NOT NULL,
   `lot`              INT              NOT NULL,
   `reference`        VARCHAR(150)     NOT NULL,
@@ -63,5 +62,12 @@ CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_situations` (
   `checked_out_time` DATETIME         NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by`       INT(11)          NOT NULL,
   PRIMARY KEY (`id`)
+)
+  DEFAULT COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_examslist` (
+  `requestsid` INT(11) NOT NULL,
+  `examsid`   INT(11) NOT NULL,
+  PRIMARY KEY (`requestsid`, `examsid`)
 )
   DEFAULT COLLATE = utf8_general_ci;

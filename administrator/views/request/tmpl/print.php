@@ -85,6 +85,14 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/print.css');
                         <div class="control-label"><?php echo $this->form->getLabel('situationsid'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('situationsid'); ?></div>
                     </div>
+                    <div class="span12 control-group">
+                        <?php foreach($this->form->getGroup('examslist') as $field): ?>
+                            <div class="span4 control-group">
+                                <div class="exam-category"><?php echo $field->label; ?></div>
+                                <div class="exam-checkboxes"><?php echo $field->input; ?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </fieldset>
         </div>
     </div>

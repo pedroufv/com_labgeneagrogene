@@ -91,10 +91,23 @@ class LabgeneagrogeneModelRequestForm extends JModelForm
      */
     public function save($data)
     {
+        $input = JFactory::getApplication()->input;
+        $inputArray = $input->post->getArray();
+        $jformArray = $inputArray['jform'];
+
+        $examsListCategory = $jformArray['examslist'];
+        $examsList = array();
+        foreach($examsListCategory as $category => $exams) {
+            foreach($exams as $exam) {
+                array_push($examsList, $exam);
+            }
+        }
+
         $data['situationsid'] = 1;
 	    $data['state'] = 1;
         $table = $this->getTable('request', 'LabgeneagrogeneTable');
         if ($table->save($data) === true) {
+            $this->getRelatedAdminModel('Examslist')->save($table->id, $examsList);
             return $table->id;
         } else {
             return false;
