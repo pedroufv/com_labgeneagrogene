@@ -100,6 +100,10 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="controls"><?php echo $this->form->getInput('totalcontainers'); ?></div>
         </div>
         <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
+        </div>
+        <div class="control-group">
             <?php $this->form->setFieldAttribute('containerslist', 'readonly', 'true'); ?>
             <div class="control-label"><?php echo $this->form->getLabel('containerslist'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('containerslist'); ?></div>

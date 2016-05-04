@@ -117,6 +117,10 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="control-label"><?php echo $this->form->getLabel('constitution'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('constitution'); ?></div>
         </div>
+        <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
+        </div>
         <div class="span4 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('number_products'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('number_products'); ?></div>
