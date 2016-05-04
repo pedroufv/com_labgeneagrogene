@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_labgenevet
+ * @package     com_labgeneagrogene
  * @copyright   Copyright (C) LabGene 2015. Todos os direitos reservados.
  * @license     GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt
  * @author      Pedro Augusto <pams.pedro@gmail.com> - http://ther.com.br/
@@ -36,7 +36,7 @@ class JFormFieldExams extends JFormFieldList
 		$query	= $db->getQuery(true);
 
 		$query->select('code As value, title As text');
-		$query->from('#__labgenevet_situations AS a');
+		$query->from('#__labgeneagrogene_situations AS a');
 		$query->order('a.title');
 		$query->where('state = 1');
 

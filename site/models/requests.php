@@ -57,10 +57,7 @@ class LabgeneagrogeneModelRequests extends JModelList
         if (empty($config['filter_fields'])) {
             $config['filter_fields'] = array(
                 'id', 'a.`id`',
-                'animalsid', 'a.`animalsid`',
-                'clinicsid', 'a.`clinicsid`',
-                'containersid', 'a.`containersid`',
-                'situetionsid', 'a.`situationsid`',
+				'situetionsid', 'a.`situationsid`',
                 'filename', 'a.`filename`',
                 'created', 'a.`created`',
                 'urgent', 'a.`urgent`',
@@ -167,7 +164,7 @@ class LabgeneagrogeneModelRequests extends JModelList
 				$query->where('a.id = ' . (int) substr($search, 3));
 			} else {
 				$search = $db->Quote('%' . $db->escape($search, true) . '%');
-				$query->where('( a.`product` LIKE '.$search.'  OR  a.`code_exam` LIKE '.$search.' OR  a.`date_reception` LIKE '.$search.' )');
+				$query->where('( a.`product` LIKE '.$search.'  OR  a.`code_exam` LIKE '.$search.' OR  a.`date_reception` LIKE '.$search.' OR  a.`situationsid` LIKE '.$search.' )');
 			}
 		}
 

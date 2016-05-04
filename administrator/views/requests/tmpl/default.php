@@ -133,6 +133,9 @@ if (!empty($this->extra_sidebar))
                 <th class='left'>
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_DATE_RECPTION', 'a.`date_reception`', $listDirn, $listOrder); ?>
                 </th>
+                <th class='left'>
+                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_SITUATION', 'a.`situationsid`', $listDirn, $listOrder); ?>
+                </th>
             </tr>
             </thead>
             <tfoot>
@@ -196,6 +199,9 @@ if (!empty($this->extra_sidebar))
                     </td>
                     <td>
                         <?php echo $item->date_reception; ?>
+                    </td>
+                    <td>
+                        <?php echo $item->situationsid; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -91,7 +91,8 @@ class LabgeneagrogeneModelRequestForm extends JModelForm
      */
     public function save($data)
     {
-	$data['state'] = 1;
+        $data['situationsid'] = 1;
+	    $data['state'] = 1;
         $table = $this->getTable('request', 'LabgeneagrogeneTable');
         if ($table->save($data) === true) {
             return $table->id;

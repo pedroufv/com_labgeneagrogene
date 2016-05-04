@@ -40,6 +40,11 @@ class LabgeneagrogeneHelper {
             'index.php?option=com_labgeneagrogene&view=constitutions',
             $vName == 'constitutions'
         );
+        JHtmlSidebar::addEntry(
+            JText::_('COM_LABGENEAGROGENE_SITUATIONS'),
+            'index.php?option=com_labgeneagrogene&view=situations',
+            $vName == 'situations'
+        );
     }
 
     /**

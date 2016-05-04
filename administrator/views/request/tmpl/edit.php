@@ -132,6 +132,10 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                         <div class="control-label"><?php echo $this->form->getLabel('date_reception'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('date_reception'); ?></div>
                     </div>
+                    <div class="span4 control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('situationsid'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('situationsid'); ?></div>
+                    </div>
                 </fieldset>
             </div>
         </div>

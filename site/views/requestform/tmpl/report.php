@@ -104,6 +104,11 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="control-label"><?php echo $this->form->getLabel('containerslist'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('containerslist'); ?></div>
         </div>
+        <div class="span5 control-group">
+            <strong><?php echo JText::_('COM_LABGENEAGROGENE_FORM_LBL_SITUATION'); ?>: </strong>
+            <?php $this->form->setFieldAttribute('situationsid', 'readonly', 'true'); ?>
+            <span><?php echo $this->form->getInput('situationsid'); ?></span>
+        </div>
     </fieldset>
     <?php if($exams = $this->form->getGroup('examslist')): ?>
     <fieldset>

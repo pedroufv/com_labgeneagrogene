@@ -83,6 +83,15 @@
                label="COM_LABGENEAGROGENE_FORM_LBL_DATE_RECEPTION"
                description="COM_LABGENEAGROGENE_FORM_DESC_DATE_RECEPTION"
                 />
+        <field name="situationsid"
+               type="sql"
+               label="COM_LABGENEAGROGENE_FORM_LBL_SITUATION"
+               description="COM_LABGENEAGROGENE_FORM_DESC_SITUATION"
+               required="true"
+               query="SELECT id AS value, title AS situationsid FROM #__labgeneagrogene_situations"
+               multiple="single"
+               class="inputbox"
+        />
         <field  name="state"
                 type="list"
                 label="JSTATUS"

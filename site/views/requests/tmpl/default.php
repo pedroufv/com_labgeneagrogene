@@ -40,6 +40,9 @@ $canCreate = $user->authorise('core.create', 'com_labgeneagrogene');
                 <th class='left'>
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_FORM_LBL_DATE_RECEPTION', 'a.`date_reception`', $listDirn, $listOrder); ?>
                 </th>
+                <th class=''>
+                    <?php echo JHtml::_('grid.sort', 'COM_LABGENEAGROGENE_SITUATION', 'a.situationid', $listDirn, $listOrder); ?>
+                </th>
                 <th class="center">
                     <?php echo JText::_('COM_LABGENEAGROGENE_ACTIONS'); ?>
                 </th>
@@ -66,6 +69,9 @@ $canCreate = $user->authorise('core.create', 'com_labgeneagrogene');
                 </td>
                 <td>
                     <?php echo $item->date_reception; ?>
+                </td>
+                <td>
+                    <?php echo $item->situationsid; ?>
                 </td>
                 <td class="center">
                     <a href="<?php echo JRoute::_('index.php?option=com_labgeneagrogene&task=requestform&layout=report&id=' . $item->id, false, 2); ?>" class="btn btn-mini" type="button"><i class="icon-file-2"></i></a>

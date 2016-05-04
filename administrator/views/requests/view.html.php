@@ -117,7 +117,20 @@ class LabgeneagrogeneViewRequests extends JViewLegacy
         //Set sidebar action - New in 3.0
         JHtmlSidebar::setAction('index.php?option=com_labgeneagrogene&view=constitution');
 
+        //Set sidebar action - New in 3.0
+        JHtmlSidebar::setAction('index.php?option=com_labgeneagrogene&view=situation');
+
         $this->extra_sidebar = '';
+
+        JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
+
+        $situations = JFormHelper::loadFieldType('situations', false);
+        $situationsOptions=$situations->getOptions();
+        JHtmlSidebar::addFilter(
+            JText::_("COM_LABGENEAGROGENE_OPTION_SELECT_SITUATION"),
+            'filter_situationsid',
+            JHtml::_('select.options', $situationsOptions, "value", "text", $this->state->get('filter.situationsid'))
+        );
 
         JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
     }
