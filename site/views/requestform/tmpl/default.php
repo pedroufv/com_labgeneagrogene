@@ -33,43 +33,6 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
 	} else {
 		jQuery(document).ready(function () {
 
-            // when any option from country list is selected
-            jQuery("select[id='jform_category_exams']").change(function(){
-
-                // get the selected option value of country
-                var optionValue = jQuery("select[id='jform_category_exams']").val();
-
-                jQuery.ajax({
-                    type: "POST",
-                    url: "index.php?option=com_labgeneagrogene&task=populateExams",
-                    data: ({category: optionValue, status: 1}),
-                    beforeSend: function(){ jQuery("#ajaxLoader").show(); },
-                    complete: function(){ jQuery("#ajaxLoader").hide(); },
-                    dataType: 'json',
-                    success: function(response){
-                        var options = jQuery("select[id='jform_code_exam']");
-                        options.empty();
-                        jQuery.each(response, function() {
-                            options.append(jQuery("<option />").val(this.id).text(this.title));
-                            options.trigger("liszt:updated");
-                        });
-                    }
-                });
-            });
-
-            var valorTotal = 0;
-            jQuery(".checkexam").change(function() {
-                var id = this.id;
-                var labelText = jQuery("label[for="+id+"]").text();
-                var price = parseFloat(labelText.split('$')[1]);
-                if(this.checked) {
-                    valorTotal = valorTotal + price;
-                } else {
-                    valorTotal = valorTotal - price;
-                }
-                jQuery('#total').html(valorTotal.toFixed(2));
-            });
-
 			jQuery('#form-request').submit(function (event) {
 
 			});
