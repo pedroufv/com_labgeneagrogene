@@ -35,10 +35,13 @@ $canCreate = $user->authorise('core.create', 'com_labgeneagrogene');
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_FORM_LBL_PRODUCT', 'a.`product`', $listDirn, $listOrder); ?>
                 </th>
                 <th class='left'>
-                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_FORM_LBL_CODE_EXAMS', 'a.`code_exam`', $listDirn, $listOrder); ?>
+                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_CONSTITUTION', 'a.`constitution`', $listDirn, $listOrder); ?>
                 </th>
                 <th class='left'>
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_FORM_LBL_DATE_RECEPTION', 'a.`date_reception`', $listDirn, $listOrder); ?>
+                </th>
+                <th class='left'>
+                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_CHECKED_OUT_TIME', 'a.`checked_out_time`', $listDirn, $listOrder); ?>
                 </th>
                 <th class=''>
                     <?php echo JHtml::_('grid.sort', 'COM_LABGENEAGROGENE_SITUATION', 'a.situationid', $listDirn, $listOrder); ?>
@@ -65,10 +68,17 @@ $canCreate = $user->authorise('core.create', 'com_labgeneagrogene');
                     <?php echo $item->product; ?>
                 </td>
                 <td>
-                    <?php echo $item->code_exam; ?>
+                    <?php echo $item->constitution; ?>
                 </td>
                 <td>
                     <?php echo $item->date_reception; ?>
+                </td>
+                <td>
+                    <?php if($item->checked_out_time == '0000-00-00 00:00:00'): ?>
+                        <?php echo JText::_('COM_LABGENEAGROGENE_NOT_CHECKED'); ?>
+                    <?php else: ?>
+                        <?php echo $item->checked_out_time; ?>
+                    <?php endif; ?>
                 </td>
                 <td>
                     <?php echo $item->situationsid; ?>

@@ -48,15 +48,6 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="controls"><?php echo $this->form->getInput('product'); ?></div>
         </div>
         <div class="span4 control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('category_exams'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('category_exams'); ?></div>
-        </div>
-        <div id="ajaxLoader" style="display:none"><img src="components/com_labgeneagrogene/assets/images/ajax-loader.gif" alt="loading..."></div>
-        <div class="span4 control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('code_exam'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('code_exam'); ?></div>
-        </div>
-        <div class="span4 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('deadline'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('deadline'); ?></div>
         </div>
@@ -79,6 +70,10 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
         <div class="span4 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('constitution'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('constitution'); ?></div>
+        </div>
+        <div class="control-group">
+            <div class="span1 control-label"><?php echo $this->form->getLabel('urgent'); ?></div>
+            <div class="span2 controls"><?php echo $this->form->getInput('urgent'); ?></div>
         </div>
         <div class="control-group">
             <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>

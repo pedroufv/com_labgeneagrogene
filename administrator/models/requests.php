@@ -102,10 +102,10 @@ class LabgeneagrogeneModelRequests extends JModelList
 		$query->select($this->getState('list.select', 'DISTINCT a.*'));
 		$query->from('`#__labgeneagrogene_requests` AS a');
 
-		// Join over the exams 'examsid'
-		$query->select('`code_exam`.title AS `code_exam`');
-		$query->join('LEFT', '#__labgeneagrogene_exams AS `code_exam` ON `code_exam`.id = a.`code_exam`');
-		// Join over the progress 'situationsid'
+		// Join over the 'constitution'
+		$query->select('`constitution`.title AS `constitution`');
+		$query->join('LEFT', '#__labgeneagrogene_constitutions AS `constitution` ON `constitution`.id = a.`constitution`');
+		// Join over the 'situationsid'
 		$query->select('`situationsid`.title AS `situationsid`');
 		$query->join('LEFT', '#__labgeneagrogene_situations AS `situationsid` ON `situationsid`.id = a.`situationsid`');
 		// Join over the users for the checked out user
@@ -135,7 +135,7 @@ class LabgeneagrogeneModelRequests extends JModelList
 				$query->where('a.id = ' . (int) substr($search, 3));
 			} else {
 				$search = $db->Quote('%' . $db->escape($search, true) . '%');
-				$query->where('( a.`product` LIKE '.$search.'  OR  a.`code_exam` LIKE '.$search.' OR  a.`date_reception` LIKE '.$search.' )');
+				$query->where('( a.`product` LIKE '.$search.'  OR  a.`date_reception` LIKE '.$search.' OR  a.`situationsid` LIKE '.$search.' )');
 			}
 		}
 

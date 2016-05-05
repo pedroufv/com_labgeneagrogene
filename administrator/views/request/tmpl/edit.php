@@ -87,6 +87,10 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                         <div class="control-label"><?php echo $this->form->getLabel('situationsid'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('situationsid'); ?></div>
                     </div>
+                    <div class="span4 control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('urgent'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('urgent'); ?></div>
+                    </div>
                     <div class="control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('info'); ?></div>

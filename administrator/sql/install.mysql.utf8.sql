@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_requests` (
   `date_validity`    DATE             NOT NULL,
   `constitution`     INT              NOT NULL,
   `number_products`  INT              NULL,
+  `urgent`           BOOLEAN          NOT NULL DEFAULT FALSE,
   `info`             TEXT             NOT NULL,
   `date_reception`   DATE             NULL,
   `situationsid`     INT(11)          NOT NULL,

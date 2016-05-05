@@ -128,7 +128,7 @@ if (!empty($this->extra_sidebar))
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_PRODUCT', 'a.`product`', $listDirn, $listOrder); ?>
                 </th>
                 <th class='left'>
-                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_CODE_EXAM', 'a.`code_exam`', $listDirn, $listOrder); ?>
+                    <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_CONSTITUTION', 'a.`constitution`', $listDirn, $listOrder); ?>
                 </th>
                 <th class='left'>
                     <?php echo JHtml::_('grid.sort',  'COM_LABGENEAGROGENE_DATE_RECPTION', 'a.`date_reception`', $listDirn, $listOrder); ?>
@@ -195,7 +195,7 @@ if (!empty($this->extra_sidebar))
                         <?php echo $item->product; ?>
                     </td>
                     <td>
-                        <?php echo $item->code_exam; ?>
+                        <?php echo $item->constitution; ?>
                     </td>
                     <td>
                         <?php echo $item->date_reception; ?>

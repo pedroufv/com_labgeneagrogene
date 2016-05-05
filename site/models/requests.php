@@ -139,9 +139,12 @@ class LabgeneagrogeneModelRequests extends JModelList
 		$query->select($this->getState('list.select', 'DISTINCT a.*'));
 		$query->from('`#__labgeneagrogene_requests` AS a');
 
-		// Join over the exams 'examsid'
-		$query->select('`code_exam`.title AS `code_exam`');
-		$query->join('LEFT', '#__labgeneagrogene_exams AS `code_exam` ON `code_exam`.id = a.`code_exam`');
+		// Join over the 'constitution'
+		$query->select('`constitution`.title AS `constitution`');
+		$query->join('LEFT', '#__labgeneagrogene_constitutions AS `constitution` ON `constitution`.id = a.`constitution`');
+		// Join over the 'situationsid'
+		$query->select('`situationsid`.title AS `situationsid`');
+		$query->join('LEFT', '#__labgeneagrogene_situations AS `situationsid` ON `situationsid`.id = a.`situationsid`');
 		// Join over the users for the checked out user
 		$query->select("uc.name AS editor");
 		$query->join("LEFT", "#__users AS uc ON uc.id=a.checked_out");

@@ -70,6 +70,13 @@
                multiple="single"
                class="inputbox"
         />
+        <field name="urgent"
+               type="checkbox"
+               label="COM_LABGENEAGROGENE_FORM_LBL_URGENT"
+               description="COM_LABGENEAGROGENE_FORM_DESC_URGENT"
+               value="1"
+               default="0"
+        />
         <field name="info"
                type="textarea"
                label="COM_LABGENEAGROGENE_FORM_LBL_INFO"
