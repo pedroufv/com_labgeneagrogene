@@ -43,45 +43,41 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
 <form id="form-request" action="<?php echo JRoute::_('index.php?option=com_labgeneagrogene&task=requestform.save'); ?>" method="post" class="form-validate form-horizontal" enctype="multipart/form-data" style="margin-top:25px">
     <fieldset>
         <input type="hidden" name="jform[id]" value="<?php echo $this->item->id; ?>"/>
-        <div class="span4 control-group">
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('product'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('product'); ?></div>
         </div>
-        <div class="span4 control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('deadline'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('deadline'); ?></div>
-        </div>
-        <div class="span4 control-group">
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('lot'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('lot'); ?></div>
         </div>
-        <div class="span4 control-group">
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('reference'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('reference'); ?></div>
         </div>
-        <div class="span4 control-group">
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('date_manufacture'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('date_manufacture'); ?></div>
-        </div>
-        <div class="span4 control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('date_validity'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('date_validity'); ?></div>
-        </div>
-        <div class="span4 control-group">
+        </div>        
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('constitution'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('constitution'); ?></div>
         </div>
-        <div class="control-group">
+	<div class="span5 control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('date_validity'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('date_validity'); ?></div>
+        </div>
+        <div class="span5 control-group">
             <div class="span1 control-label"><?php echo $this->form->getLabel('urgent'); ?></div>
             <div class="span2 controls"><?php echo $this->form->getInput('urgent'); ?></div>
-        </div>
-        <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
-        </div>
-        <div class="span4 control-group">
+        </div>        
+        <div class="span5 control-group">
             <div class="control-label"><?php echo $this->form->getLabel('number_products'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('number_products'); ?></div>
+        </div>
+	<div class="span5 control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
         </div>
     </fieldset>
     <?php if($exams = $this->form->getGroup('examslist')): ?>
@@ -90,7 +86,6 @@ $doc->addStyleSheet(JUri::base() . '/components/com_labgeneagrogene/assets/css/l
             <div class="control-group">
                 <?php foreach($this->form->getGroup('examslist') as $field): ?>
                     <div class="control-group">
-                        <?php $field->readonly = true; ?>
                         <div class="exam-category"><?php echo $field->label; ?></div>
                         <div class="exam-checkboxes"><?php echo $field->input; ?></div>
                     </div>

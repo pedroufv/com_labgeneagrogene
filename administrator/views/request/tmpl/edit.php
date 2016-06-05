@@ -95,6 +95,19 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                         <div class="control-label"><?php echo $this->form->getLabel('info'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('info'); ?></div>
                     </div>
+		    <div class="span12 control-group">
+                        <div class="span10">
+                            <div class="control-label"><?php echo $this->form->getLabel('result'); ?></div>
+                            <div class="controls"><?php echo $this->form->getInput('result'); ?></div>
+                        </div>
+                        <?php if(!empty($this->item->filename) AND file_exists(JPATH_SITE."/media/com_labgeneagrogene/upload/".$this->item->filename)): ?>
+                        <div class="span2">
+                            <a href="<?php echo JURI::base()."../media/com_labgeneagrogene/upload/".$this->item->filename; ?>" target="_blank">
+                                <?php echo JText::_('COM_LABGENEAGROGENE_SHOW_RESULT'); ?>
+                            </a>
+                        </div>
+                        <?php endif; ?>
+                    </div>
                     <div class="span12 control-group">
                         <?php foreach($this->form->getGroup('examslist') as $field): ?>
                             <div class="span4 control-group">

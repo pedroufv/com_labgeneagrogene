@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `#__labgeneagrogene_requests` (
   `id`               INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `product`          VARCHAR(150)     NOT NULL,
   `deadline`         DATE             NOT NULL,
+  `filename`         VARCHAR(255)     NOT NULL,
   `lot`              INT              NOT NULL,
   `reference`        VARCHAR(150)     NOT NULL,
   `amount`           INT              NOT NULL,

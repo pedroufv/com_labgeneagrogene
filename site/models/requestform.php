@@ -54,9 +54,17 @@ class LabgeneagrogeneModelRequestForm extends JModelForm
         // Get the form.
         $form = $this->loadForm('com_labgeneagrogene.requestform', 'requestform', array(
             'control' => 'jform',
-            'load_data' => $loadData
+            'load_data' => false
         ));
 
+	$examsCheckboxes = $this->getRelatedAdminModel('Exams')->getXmlFieldCheckboxes();
+        if($examsCheckboxes) {
+            $form->setField($examsCheckboxes);
+        }
+
+        if($loadData){
+            @$form->bind($this->loadFormData());
+        }
 
         if (empty($form)) {
             return false;

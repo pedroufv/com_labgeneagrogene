@@ -150,6 +150,20 @@ class LabgeneagrogeneModelRequest extends JModelAdmin
             }
         }
         $this->getRelatedModel('Examslist')->save($data['id'], $examsList);
+        // upload
+        $files = $input->files->get('jform');
+        //var_dump($files); exit;
+        $fileinfo = pathinfo($files['result']['name']);
+        $ext = $fileinfo['extension'];
+        $filename = $data['id'].'_'.time().".$ext";
+        $tmp_file = $files['result']['tmp_name'];
+        $dest = JPATH_SITE."/media/com_labgenevet/upload/".$filename;
+        $data['filename'] = $filename;
+        if (JFile::upload($tmp_file, $dest)) {
+            //$application->enqueueMessage(JText::_('FILE_UPLOAD_SUCESS'));
+        } else {
+            //$application->enqueueMessage(JText::_('FILE_UPLOAD_ERROR'), 'error');
+        }
 
         return parent::save($data);
     }

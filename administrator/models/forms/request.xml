@@ -88,6 +88,12 @@
                multiple="single"
                class="inputbox"
         />
+	<field name="result"
+               type="file"
+               label="COM_LABGENEAGROGENE_FORM_LBL_RESULT"
+               description="COM_LABGENEAGROGENE_FORM_DESC_RESULT"
+               size="10"
+        />
         <field  name="state"
                 type="list"
                 label="JSTATUS"

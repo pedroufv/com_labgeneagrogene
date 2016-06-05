@@ -40,4 +40,5 @@
 
 .exam-checkboxes fieldset ul li input {
     float: left;
+    width: auto;
 }
