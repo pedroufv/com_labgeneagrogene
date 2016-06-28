@@ -57,7 +57,7 @@ class LabgeneagrogeneModelRequests extends JModelList
         if (empty($config['filter_fields'])) {
             $config['filter_fields'] = array(
                 'id', 'a.`id`',
-				'situetionsid', 'a.`situationsid`',
+		'situetionsid', 'a.`situationsid`',
                 'filename', 'a.`filename`',
                 'created', 'a.`created`',
                 'urgent', 'a.`urgent`',
@@ -95,7 +95,7 @@ class LabgeneagrogeneModelRequests extends JModelList
         $params = $app->getParams();
         $this->setState('params', $params);
 
-        $this->setState('filter.state', 1);
+        //$this->setState('filter.state', 1);
         $this->setState('filter.access', true);
     }
 
@@ -131,6 +131,9 @@ class LabgeneagrogeneModelRequests extends JModelList
 	 */
 	protected function getListQuery() 
 	{
+		// get user for search items by $user->id
+        	$user = JFactory::getUser();
+
 		// Create a new query object.
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -151,6 +154,11 @@ class LabgeneagrogeneModelRequests extends JModelList
 		// Join over the user field 'created_by'
 		$query->select('`created_by`.name AS `created_by`');
 		$query->join('LEFT', '#__users AS `created_by` ON `created_by`.id = a.`created_by`');
+		$query->where('a.`created_by` = '.$user->id);
+
+		if (!$user->authorise('core.edit.state', 'com_labgeneagrogene')) {
+			$query->where('a.state = 1');
+		}
 
 		// Filter by published state
 		$published = $this->getState('filter.state');

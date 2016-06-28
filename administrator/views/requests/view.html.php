@@ -84,8 +84,8 @@ class LabgeneagrogeneViewRequests extends JViewLegacy
 
         if ($canDo->get('core.edit.state'))
         {
-            JToolbarHelper::publish('request.publish', 'JTOOLBAR_PUBLISH', true);
-            JToolbarHelper::unpublish('request.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+            //JToolbarHelper::publish('request.publish', 'JTOOLBAR_PUBLISH', true);
+            //JToolbarHelper::unpublish('request.unpublish', 'JTOOLBAR_UNPUBLISH', true);
             JToolbarHelper::archiveList('request.archive');
             JToolbarHelper::checkin('request.checkin');
         }

@@ -87,7 +87,7 @@ $canCreate = $user->authorise('core.create', 'com_labgeneagrogene');
                     <a href="<?php echo JRoute::_('index.php?option=com_labgeneagrogene&task=requestform&layout=print&id=' . $item->id, false, 2); ?>" class="btn btn-mini" type="button"><i class="icon-print"></i></a>
                     <a href="<?php echo JRoute::_('index.php?option=com_labgeneagrogene&task=requestform&layout=report&id=' . $item->id, false, 2); ?>" class="btn btn-mini" type="button"><i class="icon-file-alt"></i></a>
                 <?php if(!empty($item->filename) AND file_exists(JPATH_SITE."/media/com_labgeneagrogene/upload/".$item->filename)): ?>
-                    <a href="<?php echo JURI::base()."media/com_labgeneagrogene/upload/".$item->filename; ?>" target="_blank" class="btn btn-mini" type="button"><i class="icon-signup"></i></a>
+                    <a href="<?php echo JURI::base()."media/com_labgeneagrogene/upload/".$item->filename; ?>" target="_blank" class="btn btn-mini" type="button"><i class="icon-paperclip"></i></a>
                 <?php endif; ?>
                 </td>
             </tr>

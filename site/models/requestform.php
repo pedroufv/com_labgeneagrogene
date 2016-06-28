@@ -112,7 +112,9 @@ class LabgeneagrogeneModelRequestForm extends JModelForm
         }
 
         $data['situationsid'] = 1;
-	    $data['state'] = 1;
+	$data['state'] = 1;
+        $data['created'] = date('Y-m-d H:i:s');
+        $data['created_by'] = JFactory::getUser()->id;
         $table = $this->getTable('request', 'LabgeneagrogeneTable');
         if ($table->save($data) === true) {
             $this->getRelatedAdminModel('Examslist')->save($table->id, $examsList);
