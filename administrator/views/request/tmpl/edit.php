@@ -60,6 +60,10 @@ $document->addStyleSheet('components/com_labgeneagrogene/assets/css/labgeneagrog
                         <div class="controls"><?php echo $this->form->getInput('lot'); ?></div>
                     </div>
                     <div class="span4 control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('internal_code'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('internal_code'); ?></div>
+                    </div>
+                    <div class="span4 control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('reference'); ?></div>
                         <div class="controls"><?php echo $this->form->getInput('reference'); ?></div>
                     </div>
