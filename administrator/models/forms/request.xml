@@ -24,6 +24,11 @@
                label="COM_LABGENEAGROGENE_FORM_LBL_LOT"
                description="COM_LABGENEAGROGENE_FORM_DESC_LOT"
                 />
+        <field name="internal_code"
+               type="text"
+               label="COM_LABGENEAGROGENE_FORM_LBL_INTERNAL_CODE"
+               description="COM_LABGENEAGROGENE_FORM_DESC_INTERNAL_CODE"
+                />
         <field name="reference"
                type="text"
                label="COM_LABGENEAGROGENE_FORM_LBL_REFERENCE"
