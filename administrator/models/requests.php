@@ -135,7 +135,7 @@ class LabgeneagrogeneModelRequests extends JModelList
 				$query->where('a.id = ' . (int) substr($search, 3));
 			} else {
 				$search = $db->Quote('%' . $db->escape($search, true) . '%');
-				$query->where('( a.`product` LIKE '.$search.'  OR  a.`date_reception` LIKE '.$search.' OR  a.`situationsid` LIKE '.$search.' )');
+				$query->where('( a.`product` LIKE '.$search.'  OR  a.`date_reception` LIKE '.$search.' OR `situationsid`.title LIKE '.$search.' OR `constitution`.title LIKE '.$search.' )');
 			}
 		}
 
